@@ -1,57 +1,163 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Sitio Web en GitHub Pages</title>
+    <title>Robotics and Automation Topics</title>
     <style>
+        /* Estilo del fondo */
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            text-align: center;
-        }
-        header {
-            background-color: #4CAF50;
+            font-family: Arial, sans-serif;
+            background-image: url('https://example.com/robotics-background.jpg'); /* Cambia esta URL por la de tu imagen */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
             color: white;
-            padding: 15px 0;
         }
-        h1 {
-            margin: 0;
-        }
-        section {
+
+        /* Contenedor principal */
+        .container {
+            background-color: rgba(0, 0, 0, 0.6);
             padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: auto;
+            margin-top: 50px;
         }
+
+        /* Estilo del menú */
+        select {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        /* Estilo de los tópicos */
+        .topic {
+            display: none;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            color: black;
+        }
+
+        /* Estilo del título de cada tópico */
+        h2 {
+            margin-top: 0;
+        }
+
+        /* Botón de reset */
         button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #007bff;
             color: white;
             border: none;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
         }
+
         button:hover {
-            background-color: #45a049;
-        }
-        footer {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #333;
-            color: white;
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Bienvenido a Mi Sitio Web</h1>
-    </header>
+    <div class="container">
+        <h1>Welcome to Robotics and Automation</h1>
+        <p>Select a topic to learn more:</p>
 
-    <section>
-        <p>Este es un ejemplo simple de una página web utilizando HTML, CSS y JavaScript.</p>
-        <button onclick="mostrarMensaje()">Haz clic aquí</button>
-    </section>
+        <!-- Menú desplegable -->
+        <select id="topicSelector">
+            <option value="">-- Choose a topic --</option>
+            <option value="carrier">Carrier</option>
+            <option value="goals">Goals</option>
+            <option value="personality">Personality</option>
+            <option value="lifestyle">Life Style</option>
+            <option value="ambitions">Ambitions</option>
+            <option value="contributions">Contributions</option>
+            <option value="companies">Companies Worked</option>
+            <option value="hobbies">Hobbies</option>
+        </select>
 
-    <footer>
-        <p>&copy; 2024 Mi Sitio Web - Todos
+        <!-- Espacio para mostrar los tópicos -->
+        <div id="carrier" class="topic">
+            <h2>Carrier</h2>
+            <p>This section talks about the career path in robotics and automation.</p>
+        </div>
+
+        <div id="goals" class="topic">
+            <h2>Goals</h2>
+            <p>Here you can explore the goals and achievements in robotics and automation.</p>
+        </div>
+
+        <div id="personality" class="topic">
+            <h2>Personality</h2>
+            <p>This section is about the personality traits that drive success in robotics and automation.</p>
+        </div>
+
+        <div id="lifestyle" class="topic">
+            <h2>Life Style</h2>
+            <p>Life style associated with working in robotics and automation.</p>
+        </div>
+
+        <div id="ambitions" class="topic">
+            <h2>Ambitions</h2>
+            <p>Future ambitions in the field of robotics and automation.</p>
+        </div>
+
+        <div id="contributions" class="topic">
+            <h2>Contributions</h2>
+            <p>Here you can find contributions to the world of robotics and automation.</p>
+        </div>
+
+        <div id="companies" class="topic">
+            <h2>Companies Worked</h2>
+            <p>These are the companies worked with in the robotics industry.</p>
+        </div>
+
+        <div id="hobbies" class="topic">
+            <h2>Hobbies</h2>
+            <p>This section covers the hobbies outside of work in robotics and automation.</p>
+        </div>
+
+        <!-- Botón para limpiar la selección -->
+        <button onclick="resetSelection()">Reset</button>
+    </div>
+
+    <script>
+        // Seleccionar el menú desplegable
+        const selector = document.getElementById('topicSelector');
+
+        // Función para mostrar el tópico seleccionado
+        selector.addEventListener('change', function () {
+            // Ocultar todas las secciones primero
+            document.querySelectorAll('.topic').forEach(function (topic) {
+                topic.style.display = 'none';
+            });
+
+            // Mostrar la sección seleccionada
+            const selectedTopic = selector.value;
+            if (selectedTopic) {
+                document.getElementById(selectedTopic).style.display = 'block';
+            }
+        });
+
+        // Función para limpiar la selección
+        function resetSelection() {
+            selector.value = "";
+            document.querySelectorAll('.topic').forEach(function (topic) {
+                topic.style.display = 'none';
+            });
+        }
+    </script>
+
+</body>
+</html>
+
